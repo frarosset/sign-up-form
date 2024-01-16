@@ -1,26 +1,49 @@
-@import url('https://fonts.googleapis.com/css2?family=Sarabun&family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sarabun&family=Montserrat&family=Rosarivo&display=swap');
 
 :root {
     /* Colors */
-    --purewhite: #ffffff;
-  
-    --col-button-shadow: #292929;
-    --col-buttons: #8e8e8e;
-  
-    --text-color: #e3e3e3;
-  
+    --white: #eff4f7;
+    --grey: #cbdcd5;
+    --black: #474545;
+
+    --col-accent-dark: #05a089;
+    --col-accent-light: #36dba3;
+
+    --col-base-dark: #284a6b;
+    --col-base-light: #4a719f;
+
+    --col-warning: #c2614d; /*#bb8963;*/
+
+    --col-shadow: var(--black);
+
+    --col-buttons: var(--col-accent-light);
+
+    --txt-color: var(--white);
+    --bg-color: #173f57; /*#173f57 = rgb(23,63,87)*/
+    --bg-color-alpha: rgba(23,63,87,0.5); /*bg color with alpha*/ 
+
     /* Font sizes */  
-    --txt-fontsize: 22px;              
+    --txt-fontsize: 22px;
+    --h1-fontsize: 2rem;            
     --btn-fontsize: min(1.2rem,15vw);
-    --digits-fontsize: 1.6rem;
+    --cite-fontsize: 0.5rem;
     --results-fontsize: 1.3rem;
+    --txt-lineheight: 1.2;
+    --h1-lineheight: auto;
+
+     /* Logo size */
+     --logo-size: calc(2.5*var(--h1-fontsize));   
   
     /* Font family */
     --main-font: 'Sarabun', sans-serif;
+    --h1-font: 'Rosarivo', sans-serif;
   
     /*Margins and paddings*/
+    --h1-margin-top: 15vh;
+    --h1-padding: 60px 20px;
+    --h1-gap: 10px;
     --main-padding: 10px;
-    --ftr-gap:  20px;
+    --cite-padding: 8px;
     --radius: 10px;
   
     /*Buttons*/
@@ -37,12 +60,12 @@
   
   
   html {
-    background-color: var(--purewhite);
-    color:  var(--text-color);
-    font-family: var(--main-font), monospace;
+    background-color: var(--bg-color);
+    color:  var(--txt-color);
+    font-family: var(--main-font), sans-serif;
     font-weight: 400;
-    line-height: 1em;
     font-size: var(--txt-fontsize);
+    line-height: var(--txt-lineheight);
   }
   
   * { 
@@ -54,22 +77,127 @@
     margin: 0;
   }
   
-  body{
+ body{
     margin:  0 auto;
     height: 100vh; /*it is assumed the same for <html>*/
     width: 100%; /* or max-width -- this avoids horizontal scroll bars */
   }
 
+/*****************************************************/
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+.header-and-main{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+}
+
+/* || Header */
+header{
+    flex: 1;
+    background-image: url('../img/johny-goerend-x3WQMj5QkEE-unsplash.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100vh;
+}
+
+header > .title{
+    flex:1;
+}
+
+header h1{
+    font-family: var(--h1-font), sans-serif;
+    font-size: var(--h1-fontsize);
+    background-color: var(--bg-color-alpha);
+    margin-top: var(--h1-margin-top);
+    padding: var(--h1-padding);
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--h1-gap);
+}
+
+header h1::before{
+    font-size: var(--h1-fontsize);
+    background-image: url('../img/aurora-borealis-svgrepo-com-1.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: var(--logo-size); 
+    height: var(--logo-size); 
+    content:"";
+}
+
+header > .cite{
+    font-size: var(--cite-fontsize);
+    text-align: left;
+    padding: var(--cite-padding);
+    text-shadow: 1px 1px 1px var(--col-shadow);
+}
+
+header > .cite a,
+header > .cite a:link,
+header > .cite a:visited{
+    text-decoration: none;
+    font-variant: small-caps;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+}
+
+/* || Main */
+main{
+    /* max-width: var(--col-width); */
+    width: 100%;
+}
+
+@media only screen and (min-width: 800px){
+    /* body{
+        overflow-x: auto;
+    } */
+
+    .header-and-main{
+        flex-direction: row;
+    }
+
+    header{
+        flex-basis: 0;
+    }
+
+    /* || Main */
+    main{
+        flex: 2;
+    }
+}
+
+@media only screen and (max-width: 650px){
+    header h1{
+        flex-direction: column;
+        text-align: center;
+        margin-top: calc(var(--h1-margin-top)/2);
+    }
+}  
 
 
-
-  /* || Footer */
+/* || Footer */
 footer {
     --light-grey: rgb(210, 210, 210);
     --black: rgb(0, 0, 0);
     --ftr-fontsize: 12px;
     --ftr-font: 'Montserrat';
     --ftr-padding: 5px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
