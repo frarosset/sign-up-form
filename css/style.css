@@ -1,0 +1,59 @@
+:root {
+    /* Colors */
+    --purewhite: #ffffff;
+  
+    --col-button-shadow: #292929;
+    --col-buttons: #8e8e8e;
+  
+    --text-color: #e3e3e3;
+  
+    /* Font sizes */  
+    --txt-fontsize: 22px;              
+    --btn-fontsize: min(1.2rem,15vw);
+    --digits-fontsize: 1.6rem;
+    --results-fontsize: 1.3rem;
+  
+    /* Font family */
+    --main-font: 'Sarabun', sans-serif;
+  
+    /*Margins and paddings*/
+    --main-padding: 10px;
+    --ftr-gap:  20px;
+    --radius: 10px;
+  
+    /*Buttons*/
+    --btn-padding: 20px min(20px,2vw);
+  
+    /* Maximum column width */
+    --col-width: 400px;
+  
+    /* Animations on hover */
+    --offset-translate-hover: -3px;
+    --scale-translate-hover: 1.05;
+    --time-transition-hover: .2s;
+  }
+  
+  
+  html {
+    background-color: var(--purewhite);
+    color:  var(--text-color);
+    font-family: var(--main-font), monospace;
+    font-weight: 400;
+    line-height: 1em;
+    font-size: var(--txt-fontsize);
+  }
+  
+  * { 
+    font-family: inherit;
+    line-height: inherit;
+    color: inherit;
+    box-sizing: border-box;
+    padding:  0;
+    margin: 0;
+  }
+  
+  body{
+    margin:  0 auto;
+    height: 100vh; /*it is assumed the same for <html>*/
+    width: 100%; /* or max-width -- this avoids horizontal scroll bars */
+  }
