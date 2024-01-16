@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Sarabun&family=Montserrat&display=swap');
+
 :root {
     /* Colors */
     --purewhite: #ffffff;
@@ -57,3 +59,31 @@
     height: 100vh; /*it is assumed the same for <html>*/
     width: 100%; /* or max-width -- this avoids horizontal scroll bars */
   }
+
+
+
+
+  /* || Footer */
+footer {
+    --light-grey: rgb(210, 210, 210);
+    --black: rgb(0, 0, 0);
+    --ftr-fontsize: 12px;
+    --ftr-font: 'Montserrat';
+    --ftr-padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--light-grey);
+    color: var(--black);
+    font-family: var(--ftr-font), sans-serif;
+    font-size: var(--ftr-fontsize);
+    font-weight: 400;
+    line-height: 1.2;
+    padding: var(--ftr-padding);
+}
+
+footer i {
+    font-size: 1.3em;
+}
