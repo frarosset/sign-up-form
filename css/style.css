@@ -2,9 +2,9 @@
 
 :root {
     /* Colors */
-    --white: #eff4f7;
-    --grey: #cbdcd5;
-    --black: #474545;
+    --col-white: #eff4f7;
+    --col-grey: #cbdcd5;
+    --col-black: #474545;
 
     --col-accent-dark: #05a089;
     --col-accent-light: #36dba3;
@@ -12,22 +12,35 @@
     --col-base-dark: #284a6b;
     --col-base-light: #4a719f;
 
+    --col-bg: #173f57; /*#173f57 = rgb(23,63,87)*/
+    --col-bg-alpha: rgba(23,63,87,0.5); /*bg color with alpha*/ 
+
+    --col-txt: var(--col-white);
+
+    --col-form-txt: var(--col-bg);
+    --col-form-lbl: var(--col-accent-dark);
+    --col-form-bg: var(--col-grey);
+
+    --col-btn:           var(--col-accent-dark);
+    --col-btn-hover:     var(--col-grey);
+    --col-btn-txt:       var(--col-white);
+    --col-btn-txt-hover: var(--col-bg);
+
+    --col-em:         var(--col-accent-light);
+    --col-link:       var(--col-accent-light);
+    --col-link-hover: var(--col-accent-dark);
+
     --col-warning: #c2614d; /*#bb8963;*/
-
-    --col-shadow: var(--black);
-
-    --col-buttons: var(--col-accent-light);
-
-    --txt-color: var(--white);
-    --bg-color: #173f57; /*#173f57 = rgb(23,63,87)*/
-    --bg-color-alpha: rgba(23,63,87,0.5); /*bg color with alpha*/ 
-
+    --col-shadow: var(--col-black);
+    
     /* Font sizes */  
     --txt-fontsize: 22px;
-    --h1-fontsize: 2rem;            
-    --btn-fontsize: min(1.2rem,15vw);
+    --smaller-txt-fontsize: 0.85rem;
+    --h1-fontsize: 2rem; 
+    --h2-fontsize: 1.1rem;
+    --lbl-fontsize: 0.75rem;          
+    --btn-fontsize: 1.05rem;
     --cite-fontsize: 0.5rem;
-    --results-fontsize: 1.3rem;
     --txt-lineheight: 1.2;
     --h1-lineheight: auto;
 
@@ -42,26 +55,39 @@
     --h1-margin-top: 15vh;
     --h1-padding: 60px 20px;
     --h1-gap: 10px;
-    --main-padding: 10px;
     --cite-padding: 8px;
-    --radius: 10px;
+    --main-lr-padding: 40px;
+    --description-ub-padding: min(60px,5vh);
+    --description-gap: min(30px,3vh);
+    --form-ub-padding: min(40px,4.5vh);
+    --submit-ub-padding: min(35px,4vh);
+    --submit-gap: min(40px,2vh);
+    --control-col-gap: 20px;
+    --control-row-gap: 60px;
+    --control-lbl-gap: 5px;
+
+    /* Inputs */
+    --bottom-border-size: 2px;
   
     /*Buttons*/
-    --btn-padding: 20px min(20px,2vw);
+    --radius: 10px;
+    --btn-padding: min(10px,2vw) 20px;
+    --btn-right-margin: 30px;
   
     /* Maximum column width */
-    --col-width: 400px;
+    --col-width: min(700px,100%);
   
     /* Animations on hover */
     --offset-translate-hover: -3px;
     --scale-translate-hover: 1.05;
     --time-transition-hover: .2s;
+    --scale-translate-a-hover: 1.2;
   }
   
   
   html {
-    background-color: var(--bg-color);
-    color:  var(--txt-color);
+    background-color: var(--col-bg);
+    color:  var(--col-txt);
     font-family: var(--main-font), sans-serif;
     font-weight: 400;
     font-size: var(--txt-fontsize);
@@ -119,7 +145,7 @@ header > .title{
 header h1{
     font-family: var(--h1-font), sans-serif;
     font-size: var(--h1-fontsize);
-    background-color: var(--bg-color-alpha);
+    background-color: var(--col-bg-alpha);
     margin-top: var(--h1-margin-top);
     padding: var(--h1-padding);
     text-align: left;
@@ -131,7 +157,7 @@ header h1{
 
 header h1::before{
     font-size: var(--h1-fontsize);
-    background-image: url('../img/aurora-borealis-svgrepo-com-1.svg');
+    background-image: url('../img/aurora-borealis-svgrepo-com.svg');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -149,17 +175,146 @@ header > .cite{
 
 header > .cite a,
 header > .cite a:link,
-header > .cite a:visited{
-    text-decoration: none;
+header > .cite a:visited,
+header > .cite a:hover{
+    font-variant: small-caps;
+    color: var(--col-txt);
+    letter-spacing: 0.1em;
+}
+
+/* || Main */
+
+main{
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.description{
+    flex: 1.5;
+    padding: var(--description-ub-padding);
+    display: flex;
+    flex-direction: column;    
+    gap: var(--description-gap);
+    justify-content: flex-end;
+}
+
+.form-compile{
+    background-color: var(--col-form-bg);
+    color: var(--col-form-txt);
+}
+
+.form-controls{
+    display: flex;
+    flex-direction: column;
+    gap: var(--control-col-gap);
+    padding-top: var(--form-ub-padding);
+    padding-bottom: var(--form-ub-padding);
+}
+
+.form-submit{
+    flex: 1;
+    padding: var(--submit-ub-padding);
+    display: flex;
+    flex-direction: column;    
+    gap: var(--submit-gap);
+    align-self: start;
+}
+
+.description,
+.form-controls,
+.form-submit
+{
+    max-width: var(--col-width);
+    padding-left: var(--main-lr-padding);
+    padding-right: var(--main-lr-padding);
+}
+
+/* || Form */
+
+.form-controls h2{
+    font-size: var(--h2-fontsize);
+}
+
+.form-control-row{
+    display: flex;
+    flex-direction: row;
+    gap: var(--control-row-gap);
+    justify-content: space-between;
+}
+
+.form-submit .login{
+    font-size: var(--smaller-txt-fontsize);
+}
+
+/* || Input */
+
+.form-control{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--control-lbl-gap);
+}
+.form-control label{
+    font-size: var(--lbl-fontsize);
+    color: var(--col-form-lbl);
     font-variant: small-caps;
     font-weight: bold;
     letter-spacing: 0.1em;
 }
 
-/* || Main */
-main{
-    /* max-width: var(--col-width); */
-    width: 100%;
+.form-control input{
+    appearance: none;
+    font-size: var(--smaller-txt-fontsize);
+    line-height: 1.2;
+    background-color: inherit;
+    border: none;
+    border-bottom: var(--bottom-border-size) solid var(--col-form-txt);
+    transition: all var(--time-transition-hover) ease-in-out;
+}
+
+
+/* || Buttons */
+
+.form-submit button
+{
+    color: var(--col-btn-txt);
+    background-color: var(--col-btn);
+    font-size: var(--btn-fontsize);
+    padding: var(--btn-padding);
+    margin-right: var(--btn-right-margin);
+    border: none;
+    border-radius: var(--radius);
+    appearance: off;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+/* || Links */
+
+a,
+a:link,
+a:visited{
+    text-decoration: none;
+    font-weight: bold;
+}
+
+main a{
+    margin-left: 0.5em;
+}
+
+main a,
+main a:link,
+main a:visited{
+    color: var(--col-link);
+}
+
+/* || Emphasis */
+em {
+    color: var(--col-em);
 }
 
 @media only screen and (min-width: 800px){
