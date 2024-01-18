@@ -83,6 +83,7 @@
     --time-transition-hover: .2s;
     --scale-translate-a-hover: 1.2;
 
+    --hover-a-padding: 3px 9px;
 
     --focus-outline-size: 2px;
     --focus-outline-offset: 3px;
@@ -377,9 +378,23 @@ em {
 }
 
 /* || Pseudo-classes */
-.form-submit button
+.form-submit button,
+main a
 {
     transition: all var(--time-transition-hover) ease-in-out;
+}
+
+.form-submit button,
+main a
+{
+    user-select: none;
+}
+
+main a{ /* additional styles */
+    display: inline-block;
+    transform: scale(1);
+    padding: var(--hover-a-padding);
+    border-radius: var(--radius);
 }
 
 @media (hover: hover) and (pointer: fine) { /*mouse*/
@@ -391,9 +406,16 @@ em {
         transform: translate(0px, var(--offset-translate-hover)) scale(var(--scale-translate-hover));
         font-weight: bold;
     }
+
+    main a:hover{
+        transform: scale(var(--scale-translate-a-hover));
+        background-color: var(--col-btn-hover);
+        color: var(--col-btn-txt-hover);
+    }
 }
 
-.form-submit button:focus-visible {
+.form-submit button:focus-visible,
+main a:focus-visible {
     outline: var(--focus-outline-size) solid var(--focus-outline-col);
     outline-offset: var(--focus-outline-offset);
 }
@@ -403,6 +425,10 @@ em {
         transform: translate(0px, 0px);
         -webkit-transform: translate(0px, 0px);
     }
+
+    main a:active {
+        transform: scale(1);
+    }
 }
 
 @media (pointer: coarse) { /*finger on a touchscreen*/
@@ -411,9 +437,16 @@ em {
     {
         background-color: var(--col-btn-hover);
         color: var(--col-btn-txt-hover);
-        transform: translate(0px, var(--offset-translate-hover)) scale(var(--scale-translate-hover)) translate(0px, 0px);;
+        transform: translate(0px, var(--offset-translate-hover)) scale(var(--scale-translate-hover));
         font-weight: bold;
     }
+
+    main a:active,
+    main a:active:focus{
+        transform: scale(var(--scale-translate-a-hover));
+        background-color: var(--col-btn-hover);
+        color: var(--col-btn-txt-hover);
+    }    
 }
 
 /* || Footer */
