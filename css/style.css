@@ -77,11 +77,16 @@
     /* Maximum column width */
     --col-width: min(700px,100%);
   
-    /* Animations on hover */
+    /* Animations on hover / focus / ...*/
     --offset-translate-hover: -3px;
     --scale-translate-hover: 1.05;
     --time-transition-hover: .2s;
     --scale-translate-a-hover: 1.2;
+
+
+    --focus-outline-size: 2px;
+    --focus-outline-offset: 3px;
+    --focus-outline-col: var(--col-accent-light);
   }
   
   
@@ -274,7 +279,6 @@ main{
     background-color: inherit;
     border: none;
     border-bottom: var(--bottom-border-size) solid var(--col-form-txt);
-    transition: all var(--time-transition-hover) ease-in-out;
 }
 
 
@@ -290,10 +294,6 @@ main{
     border: none;
     border-radius: var(--radius);
     appearance: off;
-}
-
-button:hover{
-    cursor: pointer;
 }
 
 /* || Links */
@@ -376,6 +376,45 @@ em {
     }
 }
 
+/* || Pseudo-classes */
+.form-submit button
+{
+    transition: all var(--time-transition-hover) ease-in-out;
+}
+
+@media (hover: hover) and (pointer: fine) { /*mouse*/
+   .form-submit button:hover
+    {
+        cursor: pointer;
+        background-color: var(--col-btn-hover);
+        color: var(--col-btn-txt-hover);
+        transform: translate(0px, var(--offset-translate-hover)) scale(var(--scale-translate-hover));
+        font-weight: bold;
+    }
+}
+
+.form-submit button:focus-visible {
+    outline: var(--focus-outline-size) solid var(--focus-outline-col);
+    outline-offset: var(--focus-outline-offset);
+}
+
+@media (hover: hover) and (pointer: fine) { /*mouse*/
+    .form-submit button:active {
+        transform: translate(0px, 0px);
+        -webkit-transform: translate(0px, 0px);
+    }
+}
+
+@media (pointer: coarse) { /*finger on a touchscreen*/
+    .form-submit button:active,
+    .form-submit button:active:focus
+    {
+        background-color: var(--col-btn-hover);
+        color: var(--col-btn-txt-hover);
+        transform: translate(0px, var(--offset-translate-hover)) scale(var(--scale-translate-hover)) translate(0px, 0px);;
+        font-weight: bold;
+    }
+}
 
 /* || Footer */
 footer {
