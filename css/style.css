@@ -56,7 +56,7 @@
     --h1-padding: 60px 20px;
     --h1-gap: 10px;
     --cite-padding: 8px;
-    --main-lr-padding: 40px;
+    --main-lr-padding: max(40px,5vw);
     --description-ub-padding: min(60px,5vh);
     --description-gap: min(30px,3vh);
     --form-ub-padding: min(40px,4.5vh);
@@ -146,10 +146,11 @@ header h1{
     font-family: var(--h1-font), sans-serif;
     font-size: var(--h1-fontsize);
     background-color: var(--col-bg-alpha);
-    margin-top: var(--h1-margin-top);
+    margin-top: calc(var(--h1-margin-top)/2);
     padding: var(--h1-padding);
-    text-align: left;
+    text-align: center;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: var(--h1-gap);
@@ -198,6 +199,8 @@ main{
     flex-direction: column;    
     gap: var(--description-gap);
     justify-content: flex-end;
+    text-align: center;
+    text-wrap: balance;
 }
 
 .form-compile{
@@ -219,14 +222,14 @@ main{
     display: flex;
     flex-direction: column;    
     gap: var(--submit-gap);
-    align-self: start;
+    align-self: center;
 }
 
 .description,
 .form-controls,
 .form-submit
 {
-    max-width: var(--col-width);
+    max-width: 100%;
     padding-left: var(--main-lr-padding);
     padding-right: var(--main-lr-padding);
 }
@@ -239,8 +242,8 @@ main{
 
 .form-control-row{
     display: flex;
-    flex-direction: row;
-    gap: var(--control-row-gap);
+    flex-direction: column;
+    gap: var(--control-col-gap); /* mobile first: use the same gap used in the columns*/
     justify-content: space-between;
 }
 
@@ -283,7 +286,7 @@ main{
     background-color: var(--col-btn);
     font-size: var(--btn-fontsize);
     padding: var(--btn-padding);
-    margin-right: var(--btn-right-margin);
+    margin-right: 0;
     border: none;
     border-radius: var(--radius);
     appearance: off;
@@ -317,7 +320,22 @@ em {
     color: var(--col-em);
 }
 
-@media only screen and (min-width: 800px){
+/* || Responsiveness */
+
+@media only screen and (min-width: 650px){
+    header h1{
+        flex-direction: row;
+        text-align: left;
+        margin-top: var(--h1-margin-top);
+    }
+
+    .form-control-row{
+        flex-direction: row;
+        gap: var(--control-row-gap);
+    }
+}  
+
+@media only screen and (min-width: 900px) and (orientation:landscape){
     /* body{
         overflow-x: auto;
     } */
@@ -334,15 +352,29 @@ em {
     main{
         flex: 2;
     }
-}
 
-@media only screen and (max-width: 650px){
-    header h1{
-        flex-direction: column;
-        text-align: center;
-        margin-top: calc(var(--h1-margin-top)/2);
+    .description,
+    .form-controls,
+    .form-submit
+    {
+        max-width: var(--col-width);
+        padding-left: var(--main-lr-padding);
+        padding-right: var(--main-lr-padding);
     }
-}  
+
+    .description{
+        text-align: left;
+    }
+
+    .form-submit{
+        align-self: start;
+    }
+
+    .form-submit button
+    {
+        margin-right: var(--btn-right-margin);
+    }
+}
 
 
 /* || Footer */
