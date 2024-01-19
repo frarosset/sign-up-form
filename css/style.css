@@ -12,8 +12,10 @@
     --col-base-dark: #284a6b;
     --col-base-light: #4a719f;
 
-    --col-bg: #173f57; /*#173f57 = rgb(23,63,87)*/
-    --col-bg-alpha: rgba(23,63,87,0.5); /*bg color with alpha*/ 
+    --col-bg: #173f57;
+    /*#173f57 = rgb(23,63,87)*/
+    --col-bg-alpha: rgba(23, 63, 87, 0.5);
+    /*bg color with alpha*/
 
     --col-txt: var(--col-white);
 
@@ -21,47 +23,48 @@
     --col-form-lbl: var(--col-accent-dark);
     --col-form-bg: var(--col-grey);
 
-    --col-btn:           var(--col-accent-dark);
-    --col-btn-hover:     var(--col-grey);
-    --col-btn-txt:       var(--col-white);
+    --col-btn: var(--col-accent-dark);
+    --col-btn-hover: var(--col-grey);
+    --col-btn-txt: var(--col-white);
     --col-btn-txt-hover: var(--col-bg);
 
-    --col-em:         var(--col-accent-light);
-    --col-link:       var(--col-accent-light);
+    --col-em: var(--col-accent-light);
+    --col-link: var(--col-accent-light);
     --col-link-hover: var(--col-accent-dark);
 
-    --col-warning: #c2614d; /*#bb8963;*/
+    --col-warning: #c2614d;
+    /*#bb8963;*/
     --col-shadow: var(--col-black);
-    
-    /* Font sizes */  
+
+    /* Font sizes */
     --txt-fontsize: 22px;
     --smaller-txt-fontsize: 0.85rem;
-    --h1-fontsize: 2rem; 
+    --h1-fontsize: 2rem;
     --h2-fontsize: 1.1rem;
-    --lbl-fontsize: 0.75rem;          
+    --lbl-fontsize: 0.75rem;
     --btn-fontsize: 1.05rem;
     --cite-fontsize: 0.5rem;
     --txt-lineheight: 1.2;
     --h1-lineheight: auto;
 
-     /* Logo size */
-     --logo-size: calc(2.5*var(--h1-fontsize));   
-  
+    /* Logo size */
+    --logo-size: calc(2.5*var(--h1-fontsize));
+
     /* Font family */
     --main-font: 'Sarabun', sans-serif;
     --h1-font: 'Rosarivo', sans-serif;
-  
+
     /*Margins and paddings*/
     --h1-margin-top: 15vh;
     --h1-padding: 60px 20px;
     --h1-gap: 10px;
     --cite-padding: 8px;
-    --main-lr-padding: max(40px,5vw);
-    --description-ub-padding: min(60px,5vh);
-    --description-gap: min(30px,3vh);
-    --form-ub-padding: min(40px,4.5vh);
-    --submit-ub-padding: min(35px,4vh);
-    --submit-gap: min(40px,2vh);
+    --main-lr-padding: max(40px, 5vw);
+    --description-ub-padding: min(60px, 5vh);
+    --description-gap: min(30px, 3vh);
+    --form-ub-padding: min(40px, 4.5vh);
+    --submit-ub-padding: min(35px, 4vh);
+    --submit-gap: min(40px, 2vh);
 
     --control-col-gap: 20px;
     --control-row-gap: 60px;
@@ -73,15 +76,15 @@
 
     /* Inputs */
     --bottom-border-size: 2px;
-  
+
     /*Buttons*/
     --radius: 10px;
-    --btn-padding: min(10px,2vw) 20px;
+    --btn-padding: min(10px, 2vw) 20px;
     --btn-right-margin: 30px;
-  
+
     /* Maximum column width */
-    --col-width: min(700px,100%);
-  
+    --col-width: min(700px, 100%);
+
     /* Animations on hover / focus / ...*/
     --offset-translate-hover: -3px;
     --scale-translate-hover: 1.05;
@@ -93,43 +96,45 @@
     --focus-outline-size: 2px;
     --focus-outline-offset: 3px;
     --focus-outline-col: var(--col-accent-light);
-  }
-  
-  
-  html {
+}
+
+
+html {
     background-color: var(--col-bg);
-    color:  var(--col-txt);
+    color: var(--col-txt);
     font-family: var(--main-font), sans-serif;
     font-weight: 400;
     font-size: var(--txt-fontsize);
     line-height: var(--txt-lineheight);
-  }
-  
-  * { 
+}
+
+* {
     font-family: inherit;
     line-height: inherit;
     color: inherit;
     box-sizing: border-box;
-    padding:  0;
+    padding: 0;
     margin: 0;
-  }
-  
- body{
-    margin:  0 auto;
-    height: 100vh; /*it is assumed the same for <html>*/
-    width: 100%; /* or max-width -- this avoids horizontal scroll bars */
-  }
+}
+
+body {
+    margin: 0 auto;
+    height: 100vh;
+    /*it is assumed the same for <html>*/
+    width: 100%;
+    /* or max-width -- this avoids horizontal scroll bars */
+}
 
 /*****************************************************/
 
-body{
+body {
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow-x: hidden;
 }
 
-.header-and-main{
+.header-and-main {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -138,7 +143,7 @@ body{
 }
 
 /* || Header */
-header{
+header {
     flex: 1;
     background-image: url('../img/johny-goerend-x3WQMj5QkEE-unsplash.jpg');
     background-size: cover;
@@ -149,11 +154,11 @@ header{
     flex-basis: 100vh;
 }
 
-header > .title{
-    flex:1;
+header>.title {
+    flex: 1;
 }
 
-header h1{
+header h1 {
     font-family: var(--h1-font), sans-serif;
     font-size: var(--h1-fontsize);
     background-color: var(--col-bg-alpha);
@@ -167,28 +172,28 @@ header h1{
     gap: var(--h1-gap);
 }
 
-header h1::before{
+header h1::before {
     font-size: var(--h1-fontsize);
     background-image: url('../img/aurora-borealis-svgrepo-com.svg');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    width: var(--logo-size); 
-    height: var(--logo-size); 
-    content:"";
+    width: var(--logo-size);
+    height: var(--logo-size);
+    content: "";
 }
 
-header > .cite{
+header>.cite {
     font-size: var(--cite-fontsize);
     text-align: left;
     padding: var(--cite-padding);
     text-shadow: 1px 1px 1px var(--col-shadow);
 }
 
-header > .cite a,
-header > .cite a:link,
-header > .cite a:visited,
-header > .cite a:hover{
+header>.cite a,
+header>.cite a:link,
+header>.cite a:visited,
+header>.cite a:hover {
     font-variant: small-caps;
     color: var(--col-txt);
     letter-spacing: 0.1em;
@@ -196,30 +201,30 @@ header > .cite a:hover{
 
 /* || Main */
 
-main{
+main {
     min-height: 100vh;
     width: 100%;
     display: flex;
     flex-direction: column;
 }
 
-.description{
+.description {
     flex: 1.5;
     padding: var(--description-ub-padding);
     display: flex;
-    flex-direction: column;    
+    flex-direction: column;
     gap: var(--description-gap);
     justify-content: flex-end;
     text-align: center;
     text-wrap: balance;
 }
 
-.form-compile{
+.form-compile {
     background-color: var(--col-form-bg);
     color: var(--col-form-txt);
 }
 
-.form-controls{
+.form-controls {
     display: flex;
     flex-direction: column;
     gap: var(--control-col-gap);
@@ -227,19 +232,18 @@ main{
     padding-bottom: var(--form-ub-padding);
 }
 
-.form-submit{
+.form-submit {
     flex: 1;
     padding: var(--submit-ub-padding);
     display: flex;
-    flex-direction: column;    
+    flex-direction: column;
     gap: var(--submit-gap);
     align-self: center;
 }
 
 .description,
 .form-controls,
-.form-submit
-{
+.form-submit {
     max-width: 100%;
     padding-left: var(--main-lr-padding);
     padding-right: var(--main-lr-padding);
@@ -247,30 +251,32 @@ main{
 
 /* || Form */
 
-.form-controls h2{
+.form-controls h2 {
     font-size: var(--h2-fontsize);
 }
 
-.form-control-row{
+.form-control-row {
     display: flex;
     flex-direction: column;
-    gap: var(--control-col-gap); /* mobile first: use the same gap used in the columns*/
+    gap: var(--control-col-gap);
+    /* mobile first: use the same gap used in the columns*/
     justify-content: space-between;
 }
 
-.form-submit .login{
+.form-submit .login {
     font-size: var(--smaller-txt-fontsize);
 }
 
 /* || Input */
 
-.form-control{
+.form-control {
     flex: 1;
     display: flex;
     flex-direction: column;
     gap: var(--control-lbl-gap);
 }
-.form-control label{
+
+.form-control label {
     font-size: var(--lbl-fontsize);
     color: var(--col-form-lbl);
     font-variant: small-caps;
@@ -279,7 +285,7 @@ main{
     align-self: stretch;
 }
 
-.form-control input{
+.form-control input {
     appearance: none;
     font-size: var(--smaller-txt-fontsize);
     line-height: 1.2;
@@ -291,8 +297,7 @@ main{
 
 /* || Buttons */
 
-.form-submit button
-{
+.form-submit button {
     color: var(--col-btn-txt);
     background-color: var(--col-btn);
     font-size: var(--btn-fontsize);
@@ -307,18 +312,18 @@ main{
 
 a,
 a:link,
-a:visited{
+a:visited {
     text-decoration: none;
     font-weight: bold;
 }
 
-main a{
+main a {
     margin-left: 0.5em;
 }
 
 main a,
 main a:link,
-main a:visited{
+main a:visited {
     color: var(--col-link);
 }
 
@@ -329,56 +334,54 @@ em {
 
 /* || Responsiveness */
 
-@media only screen and (min-width: 650px){
-    header h1{
+@media only screen and (min-width: 650px) {
+    header h1 {
         flex-direction: row;
         text-align: left;
         margin-top: var(--h1-margin-top);
     }
 
-    .form-control-row{
+    .form-control-row {
         flex-direction: row;
         gap: var(--control-row-gap);
     }
-}  
+}
 
-@media only screen and (min-width: 900px) and (orientation:landscape){
+@media only screen and (min-width: 900px) and (orientation:landscape) {
     /* body{
         overflow-x: auto;
     } */
 
-    .header-and-main{
+    .header-and-main {
         flex-direction: row;
     }
 
-    header{
+    header {
         flex-basis: 0;
     }
 
     /* || Main */
-    main{
+    main {
         flex: 2;
     }
 
     .description,
     .form-controls,
-    .form-submit
-    {
+    .form-submit {
         max-width: var(--col-width);
         padding-left: var(--main-lr-padding);
         padding-right: var(--main-lr-padding);
     }
 
-    .description{
+    .description {
         text-align: left;
     }
 
-    .form-submit{
+    .form-submit {
         align-self: start;
     }
 
-    .form-submit button
-    {
+    .form-submit button {
         margin-right: var(--btn-right-margin);
     }
 }
@@ -388,56 +391,55 @@ em {
 main a,
 .form-control,
 .form-control label,
-.form-control input
-{
+.form-control input {
     transition: all var(--time-transition-hover) ease-in-out;
 }
 
 .form-submit button,
 main a,
-.form-control label
-{
+.form-control label {
     user-select: none;
 }
 
-main a{
+main a {
     display: inline-block;
     transform: scale(1);
     padding: var(--hover-a-padding);
     border-radius: var(--radius);
 }
 
-.form-control{
-     padding-left: var(--control-padding-left);
-     border-left: var(--control-border-left) solid var(--col-form-bg);
-     position: relative;
-     left: calc(0px - calc(var(--control-padding-left) + var(--control-border-left)));
+.form-control {
+    padding-left: var(--control-padding-left);
+    border-left: var(--control-border-left) solid var(--col-form-bg);
+    position: relative;
+    left: calc(0px - calc(var(--control-padding-left) + var(--control-border-left)));
 }
 
 .form-control label,
-.form-control label>span{
+.form-control label>span {
     padding: 1px var(--control-lbl-padding-lr);
     position: relative;
 }
 
-.form-control label{
+.form-control label {
     padding-left: var(--control-padding-left);
     left: calc(0px - var(--control-padding-left));
     display: flex;
     justify-content: space-between;
-    border-radius: 0 var(--radius)  var(--radius) 0;
+    border-radius: 0 var(--radius) var(--radius) 0;
 }
 
-.form-control label>span{
+.form-control label>span {
     border-radius: var(--radius);
     left: calc(0px - var(--control-lbl-padding-lr));
 }
 
 
 
-@media (hover: hover) and (pointer: fine) { /*mouse*/
-   .form-submit button:hover
-    {
+@media (hover: hover) and (pointer: fine) {
+
+    /*mouse*/
+    .form-submit button:hover {
         cursor: pointer;
         background-color: var(--col-btn-hover);
         color: var(--col-btn-txt-hover);
@@ -445,17 +447,17 @@ main a{
         font-weight: bold;
     }
 
-    main a:hover{
+    main a:hover {
         transform: scale(var(--scale-translate-a-hover));
         background-color: var(--col-btn-hover);
         color: var(--col-btn-txt-hover);
     }
 
-    .form-control:hover:not(:focus-within) label>span{
+    .form-control:hover:not(:focus-within) label>span {
         background-color: var(--col-btn-txt-hover);
         color: var(--col-txt);
     }
-    
+
 }
 
 .form-submit button:focus-visible,
@@ -464,22 +466,24 @@ main a:focus-visible {
     outline-offset: var(--focus-outline-offset);
 }
 
-.form-control:focus-within{
+.form-control:focus-within {
     border-left-color: var(--focus-outline-col);
 }
 
-.form-control:focus-within label{
+.form-control:focus-within label {
     background-color: var(--col-form-lbl);
     color: var(--col-txt);
 }
 
-.form-control input:focus-visible{
+.form-control input:focus-visible {
     outline: none;
     border: none;
     border-bottom: var(--bottom-border-size) solid var(--col-form-txt);
 }
 
-@media (hover: hover) and (pointer: fine) { /*mouse*/
+@media (hover: hover) and (pointer: fine) {
+
+    /*mouse*/
     .form-submit button:active {
         transform: translate(0px, 0px);
         -webkit-transform: translate(0px, 0px);
@@ -490,10 +494,11 @@ main a:focus-visible {
     }
 }
 
-@media (pointer: coarse) { /*finger on a touchscreen*/
+@media (pointer: coarse) {
+
+    /*finger on a touchscreen*/
     .form-submit button:active,
-    .form-submit button:active:focus
-    {
+    .form-submit button:active:focus {
         background-color: var(--col-btn-hover);
         color: var(--col-btn-txt-hover);
         transform: translate(0px, var(--offset-translate-hover)) scale(var(--scale-translate-hover));
@@ -501,11 +506,20 @@ main a:focus-visible {
     }
 
     main a:active,
-    main a:active:focus{
+    main a:active:focus {
         transform: scale(var(--scale-translate-a-hover));
         background-color: var(--col-btn-hover);
         color: var(--col-btn-txt-hover);
-    }    
+    }
+}
+
+.form-control input::placeholder{
+    color: var(--col-bg-alpha);
+    font-style: italic;
+}
+
+.form-control input:placeholder-shown{
+    border-bottom-style: solid;
 }
 
 /* || Footer */
