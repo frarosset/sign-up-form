@@ -62,9 +62,14 @@
     --form-ub-padding: min(40px,4.5vh);
     --submit-ub-padding: min(35px,4vh);
     --submit-gap: min(40px,2vh);
+
     --control-col-gap: 20px;
     --control-row-gap: 60px;
     --control-lbl-gap: 5px;
+
+    --control-padding-left: 0.3rem;
+    --control-border-left: 5px;
+    --control-lbl-padding-lr: 0.25rem;
 
     /* Inputs */
     --bottom-border-size: 2px;
@@ -80,7 +85,7 @@
     /* Animations on hover / focus / ...*/
     --offset-translate-hover: -3px;
     --scale-translate-hover: 1.05;
-    --time-transition-hover: .2s;
+    --time-transition-hover: 0.2s;
     --scale-translate-a-hover: 1.2;
 
     --hover-a-padding: 3px 9px;
@@ -271,6 +276,7 @@ main{
     font-variant: small-caps;
     font-weight: bold;
     letter-spacing: 0.1em;
+    align-self: stretch;
 }
 
 .form-control input{
@@ -377,25 +383,57 @@ em {
     }
 }
 
-/* || Pseudo-classes */
+/* || Pseudo-classes (+ helper styles) */
 .form-submit button,
-main a
+main a,
+.form-control,
+.form-control label,
+.form-control input
 {
     transition: all var(--time-transition-hover) ease-in-out;
 }
 
 .form-submit button,
-main a
+main a,
+.form-control label
 {
     user-select: none;
 }
 
-main a{ /* additional styles */
+main a{
     display: inline-block;
     transform: scale(1);
     padding: var(--hover-a-padding);
     border-radius: var(--radius);
 }
+
+.form-control{
+     padding-left: var(--control-padding-left);
+     border-left: var(--control-border-left) solid var(--col-form-bg);
+     position: relative;
+     left: calc(0px - calc(var(--control-padding-left) + var(--control-border-left)));
+}
+
+.form-control label,
+.form-control label>span{
+    padding: 1px var(--control-lbl-padding-lr);
+    position: relative;
+}
+
+.form-control label{
+    padding-left: var(--control-padding-left);
+    left: calc(0px - var(--control-padding-left));
+    display: flex;
+    justify-content: space-between;
+    border-radius: 0 var(--radius)  var(--radius) 0;
+}
+
+.form-control label>span{
+    border-radius: var(--radius);
+    left: calc(0px - var(--control-lbl-padding-lr));
+}
+
+
 
 @media (hover: hover) and (pointer: fine) { /*mouse*/
    .form-submit button:hover
@@ -412,12 +450,33 @@ main a{ /* additional styles */
         background-color: var(--col-btn-hover);
         color: var(--col-btn-txt-hover);
     }
+
+    .form-control:hover:not(:focus-within) label>span{
+        background-color: var(--col-btn-txt-hover);
+        color: var(--col-txt);
+    }
+    
 }
 
 .form-submit button:focus-visible,
 main a:focus-visible {
     outline: var(--focus-outline-size) solid var(--focus-outline-col);
     outline-offset: var(--focus-outline-offset);
+}
+
+.form-control:focus-within{
+    border-left-color: var(--focus-outline-col);
+}
+
+.form-control:focus-within label{
+    background-color: var(--col-form-lbl);
+    color: var(--col-txt);
+}
+
+.form-control input:focus-visible{
+    outline: none;
+    border: none;
+    border-bottom: var(--bottom-border-size) solid var(--col-form-txt);
 }
 
 @media (hover: hover) and (pointer: fine) { /*mouse*/
