@@ -518,9 +518,105 @@ main a:focus-visible {
     font-style: italic;
 }
 
-.form-control input:placeholder-shown{
-    border-bottom-style: solid;
+
+
+
+
+
+
+
+:root{
+    --valid-sym: '✔'; /*✓*/ 
+    --invalid-sym: '✘'; /*✗*/
+    --unmatched-sym: '‼'; /*⚠‼!*/
+    --required-sym: '✱'; /*✱**/
+    --valid-txt: 'valid'; 
+    --invalid-txt: 'invalid'; /*✗*/
+    --unmatched-txt: 'unmatched'; /*⚠‼!*/
+    --required-txt: 'required'; /***/
 }
+
+
+.form-control:hover input:required:not(:valid) + label::after,
+.form-control:hover input:invalid + label::after,
+.form-control input:required:not(:valid):focus + label::after,
+.form-control input:invalid:focus + label::after{
+    font-variant: normal;
+    font-weight: normal;
+    font-style: italic;
+    letter-spacing: normal;
+    word-spacing: 0.1em;
+}
+
+/*required*/
+.form-control input:required + label::after{
+    content: var(--required-sym); 
+}
+
+.form-control:hover input:required:not(:valid) + label::after,
+.form-control input:required:not(:valid):focus + label::after
+{
+    content: var(--required-txt);
+}
+
+.form-control input:required:not(:valid):not(:focus) + label::after
+{
+    color: var(--col-form-txt);
+}
+
+.form-control input:required:not(:valid):focus + label
+{
+    background-color: var(--col-form-txt);
+}
+
+/*invalid*/
+.form-control input:invalid:not(:placeholder-shown) + label::after{
+    content: var(--invalid-sym); 
+}
+
+.form-control:hover input:invalid:not(:placeholder-shown) + label::after,
+.form-control input:invalid:not(:placeholder-shown):focus + label::after
+{
+     content: var(--invalid-txt);
+}
+
+.form-control input:invalid:not(:placeholder-shown):not(:focus) + label::after
+{
+    color: var(--col-warning);
+}
+
+.form-control input:invalid:not(:placeholder-shown):focus + label
+{
+    background-color: var(--col-warning);
+}
+
+/*warning: modify the symbol from the unmatched state (see .unmatched)*/
+.form-control input.unmatched:not(:placeholder-shown) + label::after{
+    content: var(--unmatched-sym); 
+}
+
+.form-control:hover input.unmatched:not(:placeholder-shown) + label::after,
+.form-control input.unmatched:not(:placeholder-shown):focus + label::after
+{
+    content: var(--unmatched-txt);
+}
+
+/*valid: overrides previous styles*/
+.form-control input:valid:not(:placeholder-shown) + label::after{ 
+    content: var(--valid-sym);
+}
+
+.form-control input:valid:not(:focus) + label::after
+{
+    color: var(--col-form-lbl) !important;
+}
+
+
+
+
+
+
+
 
 /* || Footer */
 footer {
