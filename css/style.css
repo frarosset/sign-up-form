@@ -96,6 +96,15 @@
     --focus-outline-size: 2px;
     --focus-outline-offset: 3px;
     --focus-outline-col: var(--col-accent-light);
+
+    --valid-sym: '✔'; /*✓*/ 
+    --invalid-sym: '✘'; /*✗*/
+    --unmatched-sym: '‼'; /*⚠‼!*/
+    --required-sym: '✱'; /*✱**/
+    --valid-txt: 'valid'; 
+    --invalid-txt: 'invalid';
+    --unmatched-txt: 'unmatched';
+    --required-txt: 'required';
 }
 
 
@@ -283,6 +292,7 @@ main {
     font-weight: bold;
     letter-spacing: 0.1em;
     align-self: stretch;
+    order: 1;
 }
 
 .form-control input {
@@ -292,6 +302,7 @@ main {
     background-color: inherit;
     border: none;
     border-bottom: var(--bottom-border-size) solid var(--col-form-txt);
+    order: 2;
 }
 
 
@@ -518,24 +529,7 @@ main a:focus-visible {
     font-style: italic;
 }
 
-
-
-
-
-
-
-
-:root{
-    --valid-sym: '✔'; /*✓*/ 
-    --invalid-sym: '✘'; /*✗*/
-    --unmatched-sym: '‼'; /*⚠‼!*/
-    --required-sym: '✱'; /*✱**/
-    --valid-txt: 'valid'; 
-    --invalid-txt: 'invalid'; /*✗*/
-    --unmatched-txt: 'unmatched'; /*⚠‼!*/
-    --required-txt: 'required'; /***/
-}
-
+/******/
 
 .form-control:hover input:required:not(:valid) + label::after,
 .form-control:hover input:invalid + label::after,
@@ -610,13 +604,6 @@ main a:focus-visible {
 {
     color: var(--col-form-lbl) !important;
 }
-
-
-
-
-
-
-
 
 /* || Footer */
 footer {
