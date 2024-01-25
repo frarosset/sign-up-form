@@ -306,7 +306,7 @@ main {
 }
 
 /* Password rules */
-div.pw-rule {
+div.pw-rules {
     font-style: italic;
     color: var(--col-bg-alpha);
     font-size: 0.5rem;
@@ -314,8 +314,12 @@ div.pw-rule {
     order: 3;
 }
 
-div.pw-rule .pw-rules{
+div.pw-rules .pw-rule{
     font-weight: bold;
+}
+
+div.pw-rules .pw-rule.invalid{
+    color: var(--col-warning);
 }
 
 
